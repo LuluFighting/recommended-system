@@ -142,7 +142,9 @@ cd train
 python resnet_word_train.py --trainPath total_word_final_train.csv --valPath total_word_val.csv --checkpoint checkpoint/resnet_word
 ```
 最终的模型将会保存在checkpoint目录下的resnet_word中
-* 数字训练       
+* 数字训练      
+
+
 1、年训练：
 ```bash
 python resnet_number_train.py --trainPath year_total_final_train.csv --valPath year_total_val.csv --trainFlag 0 --checkpoint checkpoint/resnet_year
