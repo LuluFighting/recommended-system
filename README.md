@@ -6,14 +6,14 @@
    
    
 
-## 要求
+## 0、要求
 
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 数据预处理
+## 1、数据预处理
 ```bash
 cd preprocess
 ```
@@ -107,12 +107,14 @@ python add_year_train.py
 | 日模型 | day_total_train.csv | day_total_val.csv |
 
     
-## 训练及预测
+## 2、训练及预测
 回到项目根目录                
 ```bash
 cd train
 ```
-在train文件夹中，各个文件的含义如下          
+在train文件夹中，各个文件的含义如下      
+
+
 |文件|作用或含义|
 |----|----|
 |alphabet_word.txt|单字分类的类别字典|
@@ -125,7 +127,7 @@ cd train
 |merge_predict.py|预测文件，可以预测姓名、性别、民族、地址、签发机关字段|
 |single_number_predict.py|预测数字，可以预测年、月、日、id、有效期|  
 
-### 训练
+### 2.1训练
 可以将预处理中的训练集和验证集csv文件放入train目录中，  
 执行resnet_word_train.py和resnet_number_train.py，期中各个参数的意思是：    
     1、--trainPath: 训练集csv文件路径
@@ -162,7 +164,7 @@ python resnet_number_train.py --trainPath id_total_train.csv --valPath id_total_
 ```
 最终的模型将会保存在checkpoint目录下的resnet_id中
 
-### 预测
+### 2.2预测
 1、预测单字  
 将准确率最高的模型单字名称填入merge_predict.py中的Resnet_model_path中，执行：   
 ```bash
@@ -176,12 +178,14 @@ python single_number_predict.py
 ```
 生成**total_number_resnet_result.csv**
 
-## 后处理（规则矫正）
+## 3、后处理（规则矫正）
 回到根目录；  
 ```bash
 cd final_treatment
 ```
-final_treatment文件夹内各个文件的含义：
+final_treatment文件夹内各个文件的含义：         
+
+
 |文件|作用或含义|
 |----|----|
 |nation_filter.py|民族校正，将预测后不在56个民族内的字段进行编辑距离校正|
