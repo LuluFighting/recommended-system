@@ -127,13 +127,13 @@ cd train
 |merge_predict.py|预测文件，可以预测姓名、性别、民族、地址、签发机关字段|
 |single_number_predict.py|预测数字，可以预测年、月、日、id、有效期|  
 
-### 2.1训练
+### 2.1 训练
 可以将预处理中的训练集和验证集csv文件放入train目录中，  
-执行resnet_word_train.py和resnet_number_train.py，期中各个参数的意思是：    
-    1、--trainPath: 训练集csv文件路径
-    2、--valPath: 验证集csv文件路径
-    3、--resume:指定从某个已经训练好的模型之后开始训练
-    4、--checkpoint:指定模型存放的目录  
+执行resnet_word_train.py和resnet_number_train.py，期中各个参数的意思是：      
+    1、--trainPath: 训练集csv文件路径         
+    2、--valPath: 验证集csv文件路径             
+    3、--resume:指定从某个已经训练好的模型之后开始训练            
+    4、--checkpoint:指定模型存放的目录           
 其中，resnet_number_train.py可以通过--trainFlag来指定训练哪个模型，其中0表示训练年、1表示训练月、2表示训练日、3表示训练id。
 
 ---------
@@ -147,22 +147,22 @@ python resnet_word_train.py --trainPath total_word_final_train.csv --valPath tot
 ```bash
 python resnet_number_train.py --trainPath year_total_final_train.csv --valPath year_total_val.csv --trainFlag 0 --checkpoint checkpoint/resnet_year
 ```
-最终的模型将会保存在checkpoint目录下的resnet_year中
+最终的模型将会保存在checkpoint目录下的resnet_year中               
 2、月训练：
 ```bash
 python resnet_number_train.py --trainPath month_total_train.csv --valPath month_total_val.csv --trainFlag 1 --checkpoint checkpoint/resnet_month
 ```
-最终的模型将会保存在checkpoint目录下的resnet_month中
+最终的模型将会保存在checkpoint目录下的resnet_month中           
 3、日训练：
 ```bash
 python resnet_number_train.py --trainPath day_total_train.csv --valPath day_total_val.csv --trainFlag 2 --checkpoint checkpoint/resnet_day
 ```
-最终的模型将会保存在checkpoint目录下的resnet_day中  
+最终的模型将会保存在checkpoint目录下的resnet_day中         
 4、id训练
 ```bash
 python resnet_number_train.py --trainPath id_total_train.csv --valPath id_total_val.csv --trainFlag 3 --checkpoint checkpoint/resnet_id
 ```
-最终的模型将会保存在checkpoint目录下的resnet_id中
+最终的模型将会保存在checkpoint目录下的resnet_id中          
 
 ### 2.2预测
 1、预测单字  
