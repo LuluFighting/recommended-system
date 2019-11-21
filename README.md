@@ -17,7 +17,12 @@ pip install -r requirements.txt
 ```bash
 cd preprocess
 ```
-在preprocess文件夹中，各个py文件的作用如下:       
+在preprocess文件夹中，各个py文件的作用如下:            
+
+|  1 | 2 | 3 |
+| ---- | ---- | ---- |
+| a  | b | c |          
+
 |   文件   |  作用    |        
 | :-----------------------: | :--------------------------------------: |                 
 |  dealPSERes.py  |  处理PSENet检测完身份证后的结果，获得标准矩形大小的身份证图片  |                           
