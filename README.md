@@ -164,7 +164,7 @@ python resnet_number_train.py --trainPath id_total_train.csv --valPath id_total_
 ```
 最终的模型将会保存在checkpoint目录下的resnet_id中          
 
-### 2.2预测
+### 2.2 预测
 1、预测单字  
 将准确率最高的模型单字名称填入merge_predict.py中的Resnet_model_path中，执行：   
 ```bash
@@ -194,7 +194,8 @@ final_treatment文件夹内各个文件的含义：
 |correct_result.py|做签发机关校正、地址校正、做身份证号（与年月日）的适配|
 |correct_period.py|做有效期的校正|
 
-我们目前得到的结果文件是：word_resnet_result.csv(姓名、民族、性别、地址、签发机关）和 total_number_resnet_result.csv（年、月、日、id、有效期）
+我们目前得到的结果文件是：word_resnet_result.csv(姓名、民族、性别、地址、签发机关）和 total_number_resnet_result.csv（年、月、日、id、有效期）          
+
 1、民族校正
 执行：  
 ```bash
