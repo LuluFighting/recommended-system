@@ -95,14 +95,16 @@ python add_year_train.py
 
 ------------------
 8、最终的模型和对应的训练集验证集 
-在这个识别问题上，我们都是用resnet50作为backbone              
+在这个识别问题上，我们都是用resnet50作为backbone         
+
+
 | 模型 |  训练集csv文件 | 验证集csv文件 |
 | ---- | ---- | ---- |
-|单字模型 | total_word_final_train.csv|total_word_val.csv|
-|id模型|id_total_train.csv|id_total_val.csv|
-|年模型| year_total_final_train.csv| year_total_val.csv|
-|月模型| month_total_train.csv| month_total_val.csv|
-|日模型| day_total_train.csv| day_total_val.csv|
+| 单字模型 | total_word_final_train.csv | total_word_val.csv |
+| id模型 | id_total_train.csv | id_total_val.csv |
+| 年模型 | year_total_final_train.csv | year_total_val.csv |
+| 月模型 | month_total_train.csv | month_total_val.csv |
+| 日模型 | day_total_train.csv | day_total_val.csv |
 
     
 ## 训练及预测
