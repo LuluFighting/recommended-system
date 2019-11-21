@@ -37,32 +37,31 @@ cd preprocess
 
 * 初始得到的身份证不是标准形状的身份证，我们需要将原始数据中的身份证框检测出来，这里使用PSNET模型，将身份证正反两面检测出来。              
 ### 1.1 PSENet
-* 1.准备数据
-将初赛数据放到data/preli_data文件夹下    
-将复赛数据放到data/semi_data文件夹下
-* 2.运行preprocess/get_box.py      
-利用opencv和传统图像处理方法提取身份证正反面的轮廓，但此轮廓不够精确，且在身份证的正面和反面轮廓非常接近时失效，故将轮廓坐标保存，作为psenet的训练集，利用深度学习得到较为精准的框    
+* 1.准备数据               
+将初赛数据放到data/preli_data文件夹下              
+将复赛数据放到data/semi_data文件夹下        
+* 2.运行preprocess/get_box.py         
+利用opencv和传统图像处理方法提取身份证正反面的轮廓，但此轮廓不够精确，且在身份证的正面和反面轮廓非常接近时失效，故将轮廓坐标保存，作为psenet的训练集，利用深度学习得到较为精准的框       
 ```bash
 python get_box.py
 ```
 
 * 3.训练psenet
-运行PSENet/train_ocr.py
+运行PSENet/train_ocr.py                
 ```bash
 cd ..
 cd PSENet
 python train_ocr.py
 ```
-* 4.在测试集进行推理
-	运行PSENet/test_ocr.py,其中需要修改的参数时--resume，改为第3步psenet训练得到的checkpoint的路径
-	因为使用python推理较慢,在多卡情况下，可以将测试集分为几部分，每部分使用一张卡同时进行推理，会加快速度
+* 4.在测试集进行推理                    
+运行PSENet/test_ocr.py,其中需要修改的参数时--resume，改为第3步psenet训练得到的checkpoint的路径                
+因为使用python推理较慢,在多卡情况下，可以将测试集分为几部分，每部分使用一张卡同时进行推理，会加快速度                    
 ```bash
 python test_ocr.py
 ```
 
-* 5.对图片颠倒矫正
-由第四步得到测试集的box坐标，利用此坐标和opencv仿射变换,可以将身份证的正反面完整保存，但此时的证件图片还存在颠倒情况，故需训练一个模型对图片的颠倒情况进行判断，
-	通过手动标注1000张处理后的身份证颠倒情况，训练了一个resnet用于预测图片的颠倒情况。
+* 5.对图片颠倒矫正                   
+由第四步得到测试集的box坐标，利用此坐标和opencv仿射变换,可以将身份证的正反面完整保存，但此时的证件图片还存在颠倒情况，故需训练一个模型对图片的颠倒情况进行判断，通过手动标注1000张处理后的身份证颠倒情况，训练了一个resnet用于预测图片的颠倒情况。
 ```bash
 cd ../ocr_classify
 python train.py
