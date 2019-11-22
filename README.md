@@ -68,7 +68,9 @@ python train_ocr.py
 ```
 * 4.在测试集进行推理                    
 运行PSENet/test_ocr.py,其中需要修改的参数时--resume，改为第3步psenet训练得到的checkpoint的路径                
-因为使用python推理较慢,在多卡情况下，可以将测试集分为几部分，每部分使用一张卡同时进行推理，会加快速度                    
+因为使用python推理较慢,在多卡情况下，可以将测试集分为几部分，每部分使用一张卡同时进行推理，会加快速度
+因为psenet需要训练集和测试集都进行推理，故需修改test_ocr.py中的Test_Res_Path，复赛训练集需要改为Test_Res_Path='../data/Train2_PSE_Res/'  
+复赛测试集需要改为Test_Res_Path='../data/test2_PSE_Res/' 
 ```bash
 python test_ocr.py 
 ```      
