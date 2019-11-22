@@ -11,7 +11,20 @@
 
 ```bash
 pip install -r requirements.txt
-```
+ls
+```  
+在根目录下，各文件目录的含义为：    
+
+| 文件目录名 |  含义 |
+| :----: | :----: |
+| CharacterGenerator | 生成以身份证为背景的常见中文单字符 |    
+| data | 存放数据集（包括初赛图片和复赛图片以及生成的单字符图片） |     
+| PSENet | PSENet开源模型，用于检测图片框 |    
+| ocr_classify | 对标准图片框进行翻转的代码 |
+| preprocess | 数据预处理，主要是用来切割模板框 |
+| train | 训练代码以及预测代码 |    
+| final_treatment | 对结果进行合并、规则校正 |    
+
 
 ## 1、数据预处理
 ```bash
