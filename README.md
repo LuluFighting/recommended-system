@@ -70,10 +70,25 @@ python train_ocr.py
 运行PSENet/test_ocr.py,其中需要修改的参数时--resume，改为第3步psenet训练得到的checkpoint的路径                
 因为使用python推理较慢,在多卡情况下，可以将测试集分为几部分，每部分使用一张卡同时进行推理，会加快速度                    
 ```bash
-python test_ocr.py
+python test_ocr.py 
+```      
+生成的.txt文件保存在根目录下的data目录中的PSE_Res中    
+
+
+* 5.得到标准训练集和标准测试集
+```bash
+cd ../preprocess
+```
+我们利用PSE_Res中对应的框的坐标来获得标准的矩形身份证模板框，修改dealPSERes.py中的PSE_Res、Test_dir、Save_dir,Test_dir表示原始数据集目录，将其改为训练集的路径，Save_dir表示标准数据集的存储位置，执行:    
+```bash
+python dealPSERes.py
+```
+我们得到标准训练集后，需要修改Test_dir为测试集路径，修改Save_dir，再执行一次:    
+```bash
+python dealPSERes.py
 ```
 
-* 5.对图片颠倒矫正                   
+* 6.对图片颠倒矫正                   
 由第四步得到测试集的box坐标，利用此坐标和opencv仿射变换,可以将身份证的正反面完整保存，但此时的证件图片还存在颠倒情况，故需训练一个模型对图片的颠倒情况进行判断，通过手动标注1000张处理后的身份证颠倒情况，训练了一个resnet用于预测图片的颠倒情况。
 ```bash
 cd ../ocr_classify
