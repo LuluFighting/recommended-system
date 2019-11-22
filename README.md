@@ -172,6 +172,11 @@ python add_year_train.py
 | 月模型 | month_total_train.csv | month_total_val.csv |
 | 日模型 | day_total_train.csv | day_total_val.csv |
 
+```bash
+cp *train.csv ../train/
+cp *val.csv ../train/
+```
+
     
 ## 2、训练及预测
 回到项目根目录                
