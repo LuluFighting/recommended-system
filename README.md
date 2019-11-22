@@ -93,7 +93,7 @@ python dealPSERes.py
 ```bash
 cd ../ocr_classify
 python train.py
-python test.py
+python predict.py
 python flip.py
 ```
 
